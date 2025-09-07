@@ -1,7 +1,7 @@
 import { Link } from  'react-router-dom';
 
 
-function NavBar () {
+function Navbar () {
     return ( 
         <nav style = {{display: 'flex' jsutifyContent: 'space-between', padding: '10px' ,
          gap: '20px', backgroundColor: '#333'
@@ -16,4 +16,4 @@ function NavBar () {
     );
 }
 
-export default NavBar;
+export default Navbar;

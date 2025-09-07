@@ -17,45 +17,21 @@
        alert('Form submitted!');
      };
 
-      const styles = {
-    container: { padding: "20px" },
-    title: { fontSize: "2rem", color: "#333", marginBottom: "20px" },
-    form: {
-      display: "flex",
-      flexDirection: "column",
-      gap: "15px",
-      maxWidth: "400px",
-    },
-    input: {
-      padding: "12px",
-      fontSize: "1rem",
-      border: "1px solid #ccc",
-      borderRadius: "6px",
-    },
-    textarea: {
-      padding: "12px",
-      fontSize: "1rem",
-      border: "1px solid #ccc",
-      borderRadius: "6px",
-      minHeight: "100px",
-    },
-    button: {
-      padding: "12px",
-      background: "#007BFF",
-      color: "white",
-      fontSize: "1rem",
-      border: "none",
-      borderRadius: "6px",
-      cursor: "pointer",
-    },
-  };
+
 
 
      return (
-       <div style={styles.container}>
-         <h1 style={styles.title}>Contact Us</h1>
-         <form onSubmit={handleSubmit} style={styles.form}>
-           <input style={styles.input}
+       <div style={{padding: "20px"}}>
+         <h1 style={{fontSize: "2rem", color: "#333", marginBottom: "20px"}}>Contact Us</h1>
+         <form onSubmit={handleSubmit} style={{display: "flex",
+        flexDirection: "column",
+        gap: "15px",
+        maxWidth: "400px"}}>
+
+           <input style={{ padding: "12px",
+           fontSize: "1rem",
+           border: "1px solid #ccc",
+            borderRadius: "6px"}}
              type="text"
              name="name"
              placeholder="Your Name"
@@ -63,7 +39,10 @@
              onChange={handleChange}
              style={{ display: 'block', margin: '10px 0' }}
            />
-           <input style={styles.input}
+           <input style={{ padding: "12px",
+              fontSize: "1rem",
+             border: "1px solid #ccc",
+            borderRadius: "6px",}}
              type="email"
              name="email"
              placeholder="Your Email"
@@ -71,13 +50,23 @@
              onChange={handleChange}
              style={{ display: 'block', margin: '10px 0' }}
            />
-           <textarea style={styles.textarea}
+           <textarea style={{ padding: "12px",
+      fontSize: "1rem",
+      border: "1px solid #ccc",
+      borderRadius: "6px",
+      minHeight: "100px"}}
              name="message"
              placeholder="Your Message"
              value={formData.message}
              onChange={handleChange}
            />
-           <button type="submit" style={styles.button}>Send Message</button>
+           <button type="submit" style={{padding: "12px",
+             background: "#007BFF",
+             color: "white",
+             fontSize: "1rem",
+             border: "none",
+            borderRadius: "6px",
+           cursor: "pointer"}}>Send Message</button>
          </form>
        </div>
      );
