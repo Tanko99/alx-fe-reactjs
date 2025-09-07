@@ -5,7 +5,7 @@ import ProfilePage from './components/ProfilePage';
 
 
 function App() {
-  const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
+  const userData = { name: "Jane Doe", email: "jane.doe@example.com" age: 25, bio: "I am a Frontend web developer"};
 
   return  (
     <UserContext.Provider value={userData}>
