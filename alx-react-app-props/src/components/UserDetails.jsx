@@ -1,15 +1,13 @@
+import UserContext from './UserContext';
 
-import UseContext from './UseContext';
 
-function UserDetails() {
-
-    const userData = useContext(UseContext);
-  return (
-    <div>
-      <p>Name: {userData.name}</p>
-      <p>Email: {userData.email}</p>
-    </div>
-  );
+function UserDetails(){
+    const userData = useContext(UserContext);
+    return (
+        <dive>
+            <p> Name: {userData.name}</p>
+            <p> Email: {userData.email}</p>
+        </dive>
+    );
 }
-
 export default UserDetails;
