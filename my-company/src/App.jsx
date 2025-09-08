@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import NavBar from './pages/NavBar';
-import Home from './pages/Home';
-import About from './pages/About';
-import Services from './pages/Services';
-import Contact from './pages/Contact';
-import Footer from './pages/Footer';
+import NavBar from './my-company/NavBar';
+import Home from './my-company/Home';
+import About from './my-company/About';
+import Services from './my-company/Services';
+import Contact from './my-company/Contact';
+import Footer from './my-company/Footer';
 
 
 function App() {
