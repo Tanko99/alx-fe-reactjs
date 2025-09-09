@@ -16,11 +16,44 @@
        alert('Form submitted!');
      };
 
+      const styles = {
+    container: { padding: "40px" },
+    title: { fontSize: "2rem", color: "#333", marginBottom: "20px" },
+    form: {
+      display: "flex",
+      flexDirection: "column",
+      gap: "15px",
+      maxWidth: "400px",
+    },
+    input: {
+      padding: "12px",
+      fontSize: "1rem",
+      border: "1px solid #ccc",
+      borderRadius: "6px",
+    },
+    textarea: {
+      padding: "12px",
+      fontSize: "1rem",
+      border: "1px solid #ccc",
+      borderRadius: "6px",
+      minHeight: "100px",
+    },
+    button: {
+      padding: "12px",
+      background: "#007BFF",
+      color: "white",
+      fontSize: "1rem",
+      border: "none",
+      borderRadius: "6px",
+      cursor: "pointer",
+    },
+  };
+
      return (
        <div style={{ padding: '20px' }}>
-         <h1>Contact Us</h1>
-         <form onSubmit={handleSubmit}>
-           <input
+         <h1 style={styles.title}>Contact Us</h1>
+         <form style={styles.form} onSubmit={handleSubmit}>
+           <input style={styles.input}
              type="text"
              name="name"
              placeholder="Your Name"
@@ -28,7 +61,7 @@
              onChange={handleChange}
              style={{ display: 'block', margin: '10px 0' }}
            />
-           <input
+           <input style={styles.input}
              type="email"
              name="email"
              placeholder="Your Email"
@@ -36,14 +69,14 @@
              onChange={handleChange}
              style={{ display: 'block', margin: '10px 0' }}
            />
-           <textarea
+           <textarea style={styles.textarea}
              name="message"
              placeholder="Your Message"
              value={formData.message}
              onChange={handleChange}
              style={{ display: 'block', margin: '10px 0' }}
            />
-           <button type="submit">Send Message</button>
+           <button style={styles.button} type="submit">Send Message</button>
          </form>
        </div>
      );

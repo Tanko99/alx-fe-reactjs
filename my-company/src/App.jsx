@@ -10,16 +10,30 @@ import Navbar from './components/Navbar';
 
 
 function App() {
+
+    const styles = {
+       container: {
+           display: "flex",
+            flexDirection: "column",
+            minHeight: "100vh",
+    },
+          content: {
+               flex: 1,
+               padding: "20px",
+    },
+  };
     return (
         <BrowserRouter>
+        <div style={style.container}>
         <Navbar />
-          <Routes>
+          <Routes style={styles.content}>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
           <Footer />
+          </div>
         </BrowserRouter>
     );
 }
