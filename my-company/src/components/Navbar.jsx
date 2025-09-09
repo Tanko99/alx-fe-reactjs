@@ -3,7 +3,7 @@ import { Link } from  'react-router-dom';
 
 function Navbar () {
     return ( 
-        <nav style = {{display: 'flex' jsutifyContent: 'space-between', padding: '10px' ,
+        <nav style = {{display: 'flex' justifyContent: 'center', padding: '10px' ,
          gap: '20px', backgroundColor: '#333'
         }} >
             <ul style={{color: 'white', fontWeight: 'bold', listStyleType: 'none'}}   >
