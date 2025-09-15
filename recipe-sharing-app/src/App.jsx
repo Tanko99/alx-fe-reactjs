@@ -15,7 +15,7 @@ function App ()  {
         <Route path="edit/:id" element={<EditRecipeForm />}  />
       </Routes>
     </div>
-  )
+  );
 }
 
 
