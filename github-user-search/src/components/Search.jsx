@@ -11,6 +11,13 @@ const Search = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        const username = userInput.trim();
+        if(!username){
+            setError("Oops, you didn't neter username!");
+            return;
+        }
+
         setUserInput("");
         setLoading(true);
         setError("");
@@ -18,7 +25,7 @@ const Search = () => {
             const data = await fetchUserData(userInput);
             setUserData(data);
         } catch(error) {
-            setError("Can't find the user");
+            setError(" Looks like we Can't find the user");
         } finally {
             setLoading(false);
         }
@@ -40,15 +47,15 @@ const Search = () => {
             </button>
         </form>
         
-        {loading && <p className="text-blue-700 font-medium">Loading...</p>}
-        {error && <p className="text-red-700 font-medium">{error}</p>}
+        {loading && <p className="text-blue-700 text-center font-medium">Loading...</p>}
+        {error && <p className="text-red-700 text-center font-medium">{error}</p>}
          {userData && (
-            <div className="flex flex-col items-center mt-6 bg-gray-600 rounded-lg shadow-md">
+            <div className="flex flex-col items-center mt-6 bg-gray-600 rounded-lg shadow-md p-4">
               <img src={userData.avatar_url} 
-              alt={userData.login}  className="w-32 h-32 border-gray-300  border-2 p-6 rounded-full mb-4"
+              alt={userData.login}  className="w-32 h-32 border-gray-300  border-2  rounded-full mb-4"
               />
             <h2 className="font-bold text-2xl text-gray-700 font-medium">{userData.name || userData.login}</h2>
-            <a href={userData.html_url} target="_blank"
+            <a href={userData.html_url} target="_blank" rel="noopener noreferrer"
             className="hover:underline bg-blue-300 font-medium mb-2">View Profile</a>
             </div>
     )}
