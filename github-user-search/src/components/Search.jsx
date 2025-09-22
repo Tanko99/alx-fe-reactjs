@@ -1,66 +1,105 @@
-
 import { useState } from "react";
-import fetchUserData from '../services/githubService';
+import fetchUserData from "../services/githubService";
 
 const Search = () => {
-    const [userInput, setUserInput] = useState("");
-    const [userData, setUserData] =  useState(null);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
+  const [userInput, setUserInput] = useState("");
+  const [location, setLocation] = useState("");
+  const [repoCount, setRepoCount] = useState("");
+  const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    if (!userInput && !location && !repoCount) {
+      setError("Please enter at least one search criteria");
+      return;
+    }
 
-        const username = userInput.trim();
-        if(!username){
-            setError("Oops, you didn't enter username!");
-            return;
-        }
+    setError("");
+    setLoading(true);
+    setResults([]);
 
-        setUserInput("");
-        setLoading(true);
-        setUserData(null);
-        setError("");
-        try {
-            const response = await fetchUserData(username);
-            setUserData(response);
-        } catch(error) {
-            setError(" Looks like we Can't find the user");
-        } finally {
-            setLoading(false);
-        }
-    };
-    return (
-        <div>
-        <form className="flex gap-x-2 justify-center items-center"
-        onSubmit={handleSubmit}>
-            <input  className="py-2 px-4 w-64 border-green 
-            focus:ring-2 focus:ring-blue-300 focus:outline-none"
-            type="text"
-            value={userInput}
-            onChange={(e) => setUserInput(e.target.value)}
-            placeholder="Enter your github username" />
-            <button className="bg-blue-600 text-white py-2 px-4 
-            hover:bg-red-600 text-base font-medium rounded-md"
-             type="submit">
-                Search 
-            </button>
-        </form>
-        
-        {loading && <p className="text-blue-700 text-center mt-4 font-medium">Loading...</p>}
-        {error && <p className="text-red-700 text-center mt-4font-medium">{error}</p>}
-         {userData && (
-            <div className="flex flex-col items-center mt-6 bg-gray-100 rounded-lg shadow-md p-4">
-              <img src={userData.avatar_url} 
-              alt={userData.login}  className="w-32 h-32 border-gray-300  border-2  rounded-full mb-4"
-              />
-            <h2 className="font-bold text-2xl text-gray-700 font-medium">{userData.name || userData.login}</h2>
-            <a href={userData.html_url} target="_blank" rel="noopener noreferrer"
-            className="hover:underline bg-blue-300 font-medium mb-2">View Profile</a>
-            </div>
-    )}
-        </div>
-    );
+    try {
+      const response = await fetchUserData(userInput, location, repoCount);
+      setResults(response);
+    } catch (err) {
+      setError("Looks like we can’t fetch users right now.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="p-6 max-w-4xl mx-auto">
+      {/* Search Form */}
+      <form
+        onSubmit={handleSubmit}
+        className="grid grid-cols-1 md:grid-cols-4 gap-3 mb-6"
+      >
+        <input
+          className="py-2 px-4 border border-gray-300 rounded w-full focus:ring-2 focus:ring-blue-400"
+          type="text"
+          placeholder="Enter username"
+          value={userInput}
+          onChange={(e) => setUserInput(e.target.value)}
+        />
+        <input
+          className="py-2 px-4 border border-gray-300 rounded w-full focus:ring-2 focus:ring-green-400"
+          type="text"
+          placeholder="Enter location"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+        />
+        <input
+          className="py-2 px-4 border border-gray-300 rounded w-full focus:ring-2 focus:ring-purple-400"
+          type="number"
+          placeholder="Minimum repos"
+          value={repoCount}
+          onChange={(e) => setRepoCount(e.target.value)}
+        />
+        <button
+          type="submit"
+          className="bg-blue-600 text-white py-2 px-6 rounded hover:bg-blue-700 transition"
+        >
+          Search
+        </button>
+      </form>
+
+      {/* Status */}
+      {loading && <p className="text-blue-600 text-center">Loading...</p>}
+      {error && <p className="text-red-600 text-center">{error}</p>}
+
+      {/* Results */}
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {results.map((user) => (
+          <div
+            key={user.id}
+            className="bg-white p-4 rounded-lg shadow hover:shadow-lg transition"
+          >
+            <img
+              src={user.avatar_url}
+              alt={user.login}
+              className="w-32 h-32 rounded-full mx-auto mb-3"
+            />
+            <h2 className="text-xl font-bold text-center">{user.login}</h2>
+            <p className="text-sm text-gray-500 text-center">
+              {user.location || "Location not available"}
+            </p>
+            <a
+              href={user.html_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block mt-3 text-center text-blue-600 hover:underline"
+            >
+              View Profile
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
+
 export default Search;
