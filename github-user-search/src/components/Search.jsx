@@ -14,16 +14,17 @@ const Search = () => {
 
         const username = userInput.trim();
         if(!username){
-            setError("Oops, you didn't neter username!");
+            setError("Oops, you didn't enter username!");
             return;
         }
 
         setUserInput("");
         setLoading(true);
+        setUserData(null);
         setError("");
         try {
-            const data = await fetchUserData(userInput);
-            setUserData(data);
+            const response = await fetchUserData(username);
+            setUserData(response);
         } catch(error) {
             setError(" Looks like we Can't find the user");
         } finally {
@@ -47,10 +48,10 @@ const Search = () => {
             </button>
         </form>
         
-        {loading && <p className="text-blue-700 text-center font-medium">Loading...</p>}
-        {error && <p className="text-red-700 text-center font-medium">{error}</p>}
+        {loading && <p className="text-blue-700 text-center mt-4 font-medium">Loading...</p>}
+        {error && <p className="text-red-700 text-center mt-4font-medium">{error}</p>}
          {userData && (
-            <div className="flex flex-col items-center mt-6 bg-gray-600 rounded-lg shadow-md p-4">
+            <div className="flex flex-col items-center mt-6 bg-gray-100 rounded-lg shadow-md p-4">
               <img src={userData.avatar_url} 
               alt={userData.login}  className="w-32 h-32 border-gray-300  border-2  rounded-full mb-4"
               />
