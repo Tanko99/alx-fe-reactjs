@@ -3,24 +3,75 @@
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/150",
+    "ingredients": [
+      "200g spaghetti",
+      "100g pancetta or bacon",
+      "2 large eggs",
+      "50g grated Parmesan cheese",
+      "2 cloves garlic",
+      "Salt and black pepper to taste"
+    ],
+    "instructions": [
+      "Cook the spaghetti in salted boiling water until al dente.",
+      "Fry pancetta or bacon with garlic until crispy, then remove garlic.",
+      "In a bowl, beat eggs and mix with Parmesan cheese.",
+      "Drain pasta and add to the pan with pancetta.",
+      "Remove from heat, then quickly stir in the egg mixture.",
+      "Season with black pepper and serve immediately."
+    ]
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/150",
+    "ingredients": [
+      "500g chicken breast, cubed",
+      "200g plain yogurt",
+      "2 tbsp tikka masala paste",
+      "1 large onion, chopped",
+      "2 cloves garlic, minced",
+      "1-inch ginger, grated",
+      "400g canned tomatoes",
+      "150ml heavy cream",
+      "2 tbsp butter",
+      "Salt and spices to taste"
+    ],
+    "instructions": [
+      "Marinate chicken in yogurt and tikka masala paste for at least 1 hour.",
+      "Grill or pan-fry the chicken pieces until lightly charred.",
+      "In a pan, heat butter and sauté onions, garlic, and ginger.",
+      "Add canned tomatoes and cook until sauce thickens.",
+      "Blend sauce if smooth consistency is desired.",
+      "Stir in cream and add grilled chicken pieces.",
+      "Simmer for 10 minutes, garnish with coriander, and serve with rice or naan."
+    ]
   },
   {
     "id": 3,
     "title": "Beef Stroganoff",
     "summary": "Tender strips of beef cooked in a creamy mushroom and onion sauce, served over noodles or rice.",
-    "image": "https://via.placeholder.com/150"
-  },
-  {
-    "id": 4,
-    "title": "Vegetable Stir Fry",
-    "summary": "A colorful medley of fresh vegetables stir-fried with soy sauce, garlic, and ginger.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/150",
+    "ingredients": [
+      "400g beef sirloin, thinly sliced",
+      "200g mushrooms, sliced",
+      "1 medium onion, chopped",
+      "2 tbsp flour",
+      "300ml beef stock",
+      "150ml sour cream",
+      "2 tbsp butter",
+      "1 tbsp olive oil",
+      "Salt and pepper to taste"
+    ],
+    "instructions": [
+      "Season beef slices with salt and pepper, then lightly coat with flour.",
+      "Heat oil and butter in a skillet, sear beef strips quickly, then set aside.",
+      "In the same pan, cook onions and mushrooms until softened.",
+      "Add beef stock and simmer until sauce reduces slightly.",
+      "Return beef to the pan and stir in sour cream.",
+      "Simmer gently for 5 minutes and serve over noodles or rice."
+    ]
   }
+ 
 ]
