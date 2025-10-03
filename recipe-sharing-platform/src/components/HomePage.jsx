@@ -10,30 +10,22 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen sm:px-8 px-4 py-6 bg-green-400 tttext-white">
-      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-10">
-        Recipes
-      </h1>
-
-      {/* Grid container for all recipes */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 shadow-xlbg-gray-300">
+    <div className="min-h-screen sm:px-8 px-4 py-6 bg-green-500">
+      <h1 className="md:text-3xl sm::text-2xl text-xl font-bold text-center mb-6">Recipes</h1>
+      <div className="grid grid-cols-1 md:grid-cols-3 shadow-md rounded-lg bg-gray-300 gap-6">
         {recipes.map((recipe) => (
           <Link
-            to={`/recipe/${recipe.id}`}
             key={recipe.id}
-            className="block bg-white rounded-lg shadow hover:shadow-lg overflow-hidden"
+            to={`/recipe/${recipe.id}`}   
+            className="bg-white rounded-lg shadow-md p-4 hover:shadow-xl transition block"
           >
             <img
-              className="w-full h-40 object-cover"
               src={recipe.image}
               alt={recipe.title}
+              className="w-full h-48 object-cover rounded-lg mb-4"
             />
-            <div className="p-4 flex flex-col items-center">
-              <h2 className="md:text-xl font-bold mb-2 text-center">
-                {recipe.title}
-              </h2>
-              <p className="text-center text-gray-700">{recipe.summary}</p>
-            </div>
+            <h2 className="text-xl font-semibold">{recipe.title}</h2>
+            <p className="text-gray-600 mt-2">{recipe.summary}</p>
           </Link>
         ))}
       </div>
