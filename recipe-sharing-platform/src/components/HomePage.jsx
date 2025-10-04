@@ -11,8 +11,8 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen sm:px-8 px-4 py-6 bg-green-500">
-      <h1 className="md:text-3xl sm::text-2xl text-xl font-bold text-center mb-6">Recipes</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 shadow-lg rounded-lg bg-gray-600 gap-6">
+      <h1 className="md:text-3xl sm: text-2xl text-xl font-bold text-center mb-6">Recipes</h1>
+      <div className="grid grid-cols-1 md:grid-cols-3  rounded-lg  gap-6">
         {recipes.map((recipe) => (
           <Link
             key={recipe.id}
