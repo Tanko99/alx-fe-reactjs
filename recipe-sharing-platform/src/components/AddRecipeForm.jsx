@@ -61,7 +61,6 @@ const AddRecipeForm = ({ onAddRecipe }) => {
             placeholder="Enter recipe title"
           />
         </div>
-
         {/* Ingredients */}
         <div className="mb-4">
           <label className="block text-gray-700 mb-2">
@@ -74,7 +73,6 @@ const AddRecipeForm = ({ onAddRecipe }) => {
             placeholder="e.g., 200g spaghetti, 100g bacon"
           ></textarea>
         </div>
-
         {/* Instructions */}
         <div className="mb-4">
           <label className="block text-gray-700 mb-2">Preparation Steps</label>
@@ -85,7 +83,6 @@ const AddRecipeForm = ({ onAddRecipe }) => {
             placeholder="Step 1. Boil pasta. Step 2. Fry bacon..."
           ></textarea>
         </div>
-
         {/* Submit Button */}
         <button
           type="submit"
