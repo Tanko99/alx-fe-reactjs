@@ -19,8 +19,16 @@ function RegistrationForm(){
         event.preventDefault();
 
         const {name, email, password} = formData;
-        if (!name || !email || !password){
-            setError("Input fields required!");
+        if (!name){
+            setError("Name required!");
+            return;
+        }
+        if(!email){
+            setError("Email required");
+            return;
+        }
+        if(!password){
+            setError("Password required");
             return;
         }
         setFormData({
